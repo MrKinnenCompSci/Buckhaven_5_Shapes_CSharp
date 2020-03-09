@@ -16,12 +16,21 @@ namespace Buckhaven_5_Shapes_CSharp
             rect1.RectLength = Int32.Parse(Console.ReadLine());
             Console.WriteLine($"What is the width of rectangle 1?");
             rect1.RectWidth = Int32.Parse(Console.ReadLine());
+
             Console.WriteLine();
+
+            Console.WriteLine("Get values...");
+            Console.WriteLine($"The area of a rectangle width {rect1.RectWidth} and length {rect1.RectLength} is {rect1.RectArea2}.");
+            Console.WriteLine($"The perimeter is {rect1.RectPerimeter2}.");
+                       
+            Console.WriteLine();
+
+            Console.WriteLine("Calculate values...");
             rect1.CalculateArea();
             rect1.CalculatePerimeter();
-
             Console.WriteLine($"The area of a rectangle width {rect1.RectWidth} and length {rect1.RectLength} is {rect1.RectArea}.");
             Console.WriteLine($"The perimeter is {rect1.RectPerimeter}.");
+
             Console.ReadLine();
         }
 
@@ -43,6 +52,16 @@ namespace Buckhaven_5_Shapes_CSharp
                 set { _rectLength = value; }
             }
 
+            public int RectArea2
+            {
+                get { return _rectWidth * _rectLength; }
+            }
+
+            public int RectPerimeter2
+            {
+                get { return (2 * _rectWidth) + (2 * _rectLength); }
+            }
+            
             public int RectArea
             {
                 get { return _rectArea; }
@@ -55,7 +74,7 @@ namespace Buckhaven_5_Shapes_CSharp
 
             public void CalculateArea()
             {
-                _rectArea = _rectWidth* _rectLength;
+                _rectArea = _rectWidth * _rectLength;
             }
             public void CalculatePerimeter()
             {
