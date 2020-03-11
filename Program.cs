@@ -10,17 +10,29 @@ namespace Buckhaven_5_Shapes_CSharp
     {
         static void Main(string[] args)
         {
-            Rectangle rect1 = new Rectangle();
+            //Rectangle rect1 = new Rectangle();
 
 
-            rect1.SetSize();
-            rect1.OutputSize();
+            //rect1.SetSize();
+            //rect1.OutputSize();
 
-            Circle circle1 = new Circle();
+            //Circle circle1 = new Circle();
 
-            circle1.SetRadius();
-            circle1.OutputSize();
+            //circle1.SetRadius();
+            //circle1.OutputSize();
 
+            Circle[] myCircles = new Circle[3];
+
+            for (int i = 0;i<3;i++)
+            {
+                Console.WriteLine($"Circle {i + 1}.");
+                myCircles[i] = new Circle();
+                myCircles[i].SetRadius();
+                myCircles[i].OutputSize();
+
+            }
+
+            myCircles[2].OutputSize();
 
             Console.ReadLine();
         }
@@ -40,7 +52,7 @@ namespace Buckhaven_5_Shapes_CSharp
             {
                 get { return _rectLength; }
             }
-                                   
+
             public int RectArea
             {
                 get { return _rectArea; }
@@ -64,7 +76,7 @@ namespace Buckhaven_5_Shapes_CSharp
                 _rectArea = _rectWidth * _rectLength;
                 _rectPerimeter = (2 * _rectWidth) + (2 * _rectLength);
             }
-            
+
             public void OutputSize()
             {
                 CalculateSize();
@@ -110,15 +122,15 @@ namespace Buckhaven_5_Shapes_CSharp
             public void CalculateSize()
             {
                 _circleDiameter = _circleRadius * 2;
-                _circleArea = Math.Pow(_circleRadius,2) * Math.PI;
+                _circleArea = Math.Pow(_circleRadius, 2) * Math.PI;
                 _circlePerimeter = _circleDiameter * Math.PI;
             }
 
             public void OutputSize()
             {
                 CalculateSize();
-                Console.WriteLine($"The area of a circle with radius {_circleRadius} is {Math.Round(_circleArea,2)}.");
-                Console.WriteLine($"The diameter is {_circleDiameter} and the perimeter is {Math.Round(_circlePerimeter,2)}.");
+                Console.WriteLine($"The area of a circle with radius {_circleRadius} is {Math.Round(_circleArea, 2)}.");
+                Console.WriteLine($"The diameter is {_circleDiameter} and the perimeter is {Math.Round(_circlePerimeter, 2)}.");
             }
 
         }
