@@ -12,24 +12,14 @@ namespace Buckhaven_5_Shapes_CSharp
         {
             Rectangle rect1 = new Rectangle();
 
-            Console.WriteLine($"What is the length of rectangle 1?");
-            rect1.RectLength = Int32.Parse(Console.ReadLine());
-            Console.WriteLine($"What is the width of rectangle 1?");
-            rect1.RectWidth = Int32.Parse(Console.ReadLine());
+            rect1.SetSize();
+            rect1.OutputSize();
 
-            Console.WriteLine();
+            Circle circle1 = new Circle();
 
-            Console.WriteLine("Get values...");
-            Console.WriteLine($"The area of a rectangle width {rect1.RectWidth} and length {rect1.RectLength} is {rect1.RectArea2}.");
-            Console.WriteLine($"The perimeter is {rect1.RectPerimeter2}.");
-                       
-            Console.WriteLine();
+            circle1.SetRadius();
+            circle1.OutputSize();
 
-            Console.WriteLine("Calculate values...");
-            rect1.CalculateArea();
-            rect1.CalculatePerimeter();
-            Console.WriteLine($"The area of a rectangle width {rect1.RectWidth} and length {rect1.RectLength} is {rect1.RectArea}.");
-            Console.WriteLine($"The perimeter is {rect1.RectPerimeter}.");
 
             Console.ReadLine();
         }
@@ -44,24 +34,12 @@ namespace Buckhaven_5_Shapes_CSharp
             public int RectWidth
             {
                 get { return _rectWidth; }
-                set { _rectWidth = value; }
             }
             public int RectLength
             {
                 get { return _rectLength; }
-                set { _rectLength = value; }
             }
-
-            public int RectArea2
-            {
-                get { return _rectWidth * _rectLength; }
-            }
-
-            public int RectPerimeter2
-            {
-                get { return (2 * _rectWidth) + (2 * _rectLength); }
-            }
-            
+                                   
             public int RectArea
             {
                 get { return _rectArea; }
@@ -72,13 +50,74 @@ namespace Buckhaven_5_Shapes_CSharp
                 get { return _rectPerimeter; }
             }
 
-            public void CalculateArea()
+            public void SetSize()
+            {
+                Console.WriteLine("What is the width of the rectangle?");
+                _rectWidth = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("What is the length of the rectangle?");
+                _rectLength = Int32.Parse(Console.ReadLine());
+            }
+
+            public void CalculateSize()
             {
                 _rectArea = _rectWidth * _rectLength;
-            }
-            public void CalculatePerimeter()
-            {
                 _rectPerimeter = (2 * _rectWidth) + (2 * _rectLength);
+            }
+            
+            public void OutputSize()
+            {
+                CalculateSize();
+                Console.WriteLine($"The area of a rectangle width {_rectWidth} and length {_rectLength} is {_rectArea}.");
+                Console.WriteLine($"The perimeter is {_rectPerimeter}.");
+            }
+
+        }
+
+        public class Circle
+        {
+            private double _circleRadius;
+            private double _circleDiameter;
+            private double _circleArea;
+            private double _circlePerimeter;
+
+            public double CircleRadius
+            {
+                get { return _circleRadius; }
+            }
+
+            public double CircleDiameter
+            {
+                get { return _circleDiameter; }
+            }
+
+            public double CircleArea
+            {
+                get { return _circleArea; }
+            }
+
+            public double CirclePerimeter
+            {
+                get { return _circlePerimeter; }
+            }
+
+            public void SetRadius()
+            {
+                Console.WriteLine("What is the radius of the circle?");
+                _circleRadius = double.Parse(Console.ReadLine());
+            }
+
+            public void CalculateSize()
+            {
+                _circleDiameter = _circleRadius * 2;
+                _circleArea = Math.Pow(_circleRadius,2) * Math.PI;
+                _circlePerimeter = _circleDiameter * Math.PI;
+            }
+
+            public void OutputSize()
+            {
+                CalculateSize();
+                Console.WriteLine($"The area of a circle with radius {_circleRadius} is {Math.Round(_circleArea,2)}.");
+                Console.WriteLine($"The diameter is {_circleDiameter} and the perimeter is {Math.Round(_circlePerimeter,2)}.");
             }
 
         }
