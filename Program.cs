@@ -12,6 +12,7 @@ namespace Buckhaven_5_Shapes_CSharp
         {
             Rectangle rect1 = new Rectangle();
 
+
             rect1.SetSize();
             rect1.OutputSize();
 
